@@ -75,3 +75,11 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 </pre>
+
+## Words of Warning
+This is far from turn key you would need to take the test harness code and set it up in xcode
+You need to place the dylib in a directory that will get searched at link time. If you are using 
+XCode on mac you will need to set up where the library builds to. This took me a while not being 
+an experienced XCode user. So you have a lot of directories to make and put stuff into. You just 
+can't clone and go. 
+
