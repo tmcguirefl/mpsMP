@@ -10,7 +10,7 @@
 #import <Metal/Metal.h>
 #import <MetalPerformanceShaders/MetalPerformanceShaders.h>
 
-void mpsMP(int rowsA, int columnsA, int rowsB, int columnsB, int rowsC, int columnsC, float *arrayA, float *arrayB, float *arrayC) {
+int mpsMP(int rowsA, int columnsA, int rowsB, int columnsB, int rowsC, int columnsC, float *arrayA, float *arrayB, float *arrayC) {
     @autoreleasepool {
         NSArray<id<MTLDevice>> *devices = MTLCopyAllDevices();
         id<MTLDevice> device = nil;
@@ -23,8 +23,7 @@ void mpsMP(int rowsA, int columnsA, int rowsB, int columnsB, int rowsC, int colu
         }
 
         if (!device) {
-            NSLog(@"No suitable Metal device found");
-            return;
+            return 1;
         }
 
  
@@ -53,5 +52,6 @@ void mpsMP(int rowsA, int columnsA, int rowsB, int columnsB, int rowsC, int colu
         const float *rawPointer = matrixC.data.contents;
         memcpy(arrayC, rawPointer, rowsC * columnsC * sizeof(float));
     }
+    return 0;
 }
 

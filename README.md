@@ -61,7 +61,7 @@ int main(int argc, const char * argv[]) {
     randomizeArray(arrayA, rowsA * columnsA);
     randomizeArray(arrayB, rowsB * columnsB);
 
-    mpsMP(rowsA, columnsA, rowsB, columnsB, rowsC, columnsC, arrayA, arrayB, arrayC);
+    int result = mpsMP(rowsA, columnsA, rowsB, columnsB, rowsC, columnsC, arrayA, arrayB, arrayC);
 
     printf("Result first 10 matrix C:\n");
     for (int i = 0; i < 10; i++) {
@@ -72,7 +72,7 @@ int main(int argc, const char * argv[]) {
     free(arrayB);
     free(arrayC);
 
-    return 0;
+    return result;
 }
 </pre>
 
